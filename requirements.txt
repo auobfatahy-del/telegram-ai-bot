@@ -1,5 +1,1 @@
-python-telegram-bot
-openai
-feedparser
-python-dotenv
-schedule
+requests
