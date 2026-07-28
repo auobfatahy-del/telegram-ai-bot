@@ -1,1 +1,27 @@
-print("AI News Bot Started")
+import os
+import requests
+
+# خواندن توکن از متغیر محیطی گیت‌هاب اکشن که تنظیم کرده بودیم
+TOKEN = os.environ.get("TELEGRAM_TOKEN")
+
+# آیدی کانال تلگرام شما (مثلا: @your_channel_id)
+CHANNEL_USERNAME = "@your_channel_id"
+
+def send_telegram_message(message):
+    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
+    payload = {
+        "chat_id": CHANNEL_USERNAME,
+        "text": message,
+        "parse_mode": "Markdown"
+    }
+    response = requests.post(url, json=payload)
+    if response.status_code == 200:
+        print("پیام با موفقیت به کانال ارسال شد!")
+    else:
+        print(f"خطا در ارسال پیام: {response.text}")
+
+if __name__ == "__main__":
+    # متن خبری که ربات می‌خواهد ارسال کند
+    news_text = "🤖 *گزارش روزانه هوش مصنوعی*\n\nامروز خبرهای مهمی در دنیای هوش مصنوعی منتشر شده است که به زودی بررسی می‌شوند..."
+    
+    send_telegram_message(news_text)
