@@ -15,9 +15,9 @@ def generate_ai_news():
         
         prompt = "یک گزارش کوتاه، جذاب و حرفه‌ای به زبان فارسی درباره آخرین پیشرفت‌ها و اخبار دنیای هوش مصنوعی بنویس."
         
-        # استفاده از مدل gemini-2.5-flash (یا مدل‌های دیگر گوگل)
+        # استفاده از مدل استاندارد و فعال
         response = client.models.generate_content(
-            model='gemini-2.5-flash',
+            model='gemini-2.0-flash',
             contents=prompt,
         )
         
