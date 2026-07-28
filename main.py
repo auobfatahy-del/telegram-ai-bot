@@ -1,11 +1,9 @@
 import os
 import requests
 
-# خواندن توکن از متغیر محیطی گیت‌هاب اکشن که تنظیم کرده بودیم
+# خواندن توکن و آیدی کانال از متغیرهای محیطی گیت‌هاب اکشن
 TOKEN = os.environ.get("TELEGRAM_TOKEN")
-
-# آیدی کانال تلگرام شما (مثلا: @your_channel_id)
-CHANNEL_USERNAME = "@your_channel_id"
+CHANNEL_USERNAME = os.environ.get("CHANNEL_ID")
 
 def send_telegram_message(message):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
